@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  <!-- 로그 패턴 정의 -->
+  <property name="LOG_PATTERN"
+    value="%d{yyyy-MM-dd HH:mm:ss} [%thread] [%-5level] %logger{36} - %msg%n"/>
+
+  <!-- 콘솔 앱 펜더 설정 -->
+  <appender name="PROFILE-APPENDER" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <pattern>${LOG_PATTERN}</pattern>
+    </encoder>
+  </appender>
+
+  <!-- 패키지 로그 레벨 설정-->
+  <property name="LOG_LEVEL_root" value="DEBUG"/>
+  <property name="LOG_LEVEL_com.example.opensearch" value="DEBUG"/>
+  <property name="LOG_LEVEL_org.springframework" value="DEBUG"/>
+  <property name="LOG_LEVEL_org.apache.hc" value="INFO"/>
+
+  <!-- 로그 레벨 설정 -->
+  <root level="${LOG_LEVEL_root}">
+    <appender-ref ref="PROFILE-APPENDER"/>
+  </root>
+  <!-- com.example.boilerplate -->
+  <logger name="com.example.opensearch"
+    level="${LOG_LEVEL_com.example.opensearch}"
+    additivity="false">
+    <appender-ref ref="PROFILE-APPENDER"/>
+  </logger>
+  <!-- org.springframework -->
+  <logger name="org.springframework"
+    level="${LOG_LEVEL_org.springframework}"
+    additivity="false">
+    <appender-ref ref="PROFILE-APPENDER"/>
+  </logger>
+  <!-- org.apache.hc -->
+  <logger name="org.apache.hc"
+    level="${LOG_LEVEL_org.apache.hc}"
+    additivity="false">
+    <appender-ref ref="PROFILE-APPENDER"/>
+  </logger>
+
+</configuration>
