@@ -105,7 +105,7 @@ class SampleServiceTest {
     // Given
     String indexName = "sample-index";
     SampleDto.Document sampleDocument = SampleDto.Document.builder()
-        .id("PQrrbJABVpBL2f7HyDpf")
+        .id("01")
         .build();
 
     // When
