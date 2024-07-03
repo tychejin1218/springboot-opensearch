@@ -13,11 +13,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class OpenSearchConfig {
 
-  private static final String SCHEME = "https";
-  private static final String HOST = "";
-  private static final int PORT = 443;
-  private static final String USERNAME = "";
-  private static final String PASSWORD = "";
+  private static final String SCHEME = "http";
+  private static final String HOST = "localhost";
+  private static final int PORT = 9200;
+  private static final String USERNAME = "admin";
+  private static final String PASSWORD = "admin";
 
   /**
    * OpenSearchClient Bean 설정
