@@ -9,14 +9,16 @@
   - #### Gradle 8.8
 
 - #### 참고
-  - #### Java Client
-    - #### https://opensearch.org/docs/latest/clients/java/
+  - #### Docker
+    - #### https://opensearch.org/docs/1.0/opensearch/install/docker
+    - #### https://hub.docker.com/r/opensearchproject/opensearch/tags
+  - #### OpenSearchClient
+    - #### https://opensearch.org/docs/latest/clients/java
 
 - #### 1.Docker를 사용하여 OpenSearch 설치 및 실행
-  - #### 1_1. OpenSearch 설치
+  - #### 1_1. OpenSearch 설치
     - #### Docker를 사용하여 로컬에 Opensearch를 설치하세요.
     - #### docker pull opensearchproject/opensearch:1.3.17
-    - #### docker pull opensearchproject/opensearch-dashboards:1.3.17
   - #### 1_2. OpenSearch 실행
     - #### OpenSearch Docker 이미지를 다음의 명령어를 실행하여 로컬에서 실행하세요.
     - #### docker run -p 9200:9200 -p 9600:9600 -e "discovery.type=single-node" -e DISABLE_SECURITY_PLUGIN=true opensearchproject/opensearch:1.3.17

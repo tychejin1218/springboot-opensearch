@@ -29,10 +29,12 @@ public class OpenSearchConfig {
 
     final HttpHost httpHost = new HttpHost(SCHEME, HOST, PORT);
 
+    // 인증 정보를 설정
     BasicCredentialsProvider credentialsProvider = new BasicCredentialsProvider();
     credentialsProvider.setCredentials(new AuthScope(httpHost),
         new UsernamePasswordCredentials(USERNAME, PASSWORD.toCharArray()));
 
+    // OpenSearch와 통신하기 위한 OpenSearchTransport 객체를 생성
     final OpenSearchTransport transport =
         ApacheHttpClient5TransportBuilder.builder(httpHost)
             .setHttpClientConfigCallback(httpClientBuilder -> httpClientBuilder
