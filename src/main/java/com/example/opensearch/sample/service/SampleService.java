@@ -33,6 +33,12 @@ public class SampleService {
   /**
    * Index 생성
    *
+   * <p>Request Body</p>
+   * <p>curl -X PUT http://localhost:9200/sample-index</p>
+   *
+   * <p>Response Body</p>
+   * <p>{"acknowledged":true,"shards_acknowledged":true,"index":"sample-index"}</p>
+   *
    * @param indexName 생성할 인덱스명
    * @return CreateIndexResponse Index 생성에 대한 응답을 담고 있는 객체
    */
@@ -56,6 +62,12 @@ public class SampleService {
   /**
    * Index 존재 여부 조회
    *
+   * <p>Request Body</p>
+   * <p>curl -HEAD http://localhost:9200/sample-index</p>
+   *
+   * <p>Response Body</p>
+   * <p>{"sample-index":{"aliases":{},"mappings":{},"settings":{...}}}}</p>
+   *
    * @param indexName 조회할 인덱스명
    * @return BooleanResponse 인덱스 여부 응답을 담고 있는 객체
    */
@@ -76,6 +88,12 @@ public class SampleService {
 
   /**
    * Index 삭제
+   *
+   * <p>Request Body</p>
+   * <p>curl -X DELETE http://localhost:9200/sample-index</p>
+   *
+   * <p>Response Body</p>
+   * <p>{"acknowledged":true}</p>
    *
    * @param indexName 삭제할 인덱스명
    * @return DeleteIndexResponse Index 삭제에 대한 응답을 담고 있는 객체
