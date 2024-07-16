@@ -1,0 +1,68 @@
+### document 조회
+GET http://localhost:9200/problem-records/_search?size=40
+Content-Type: application/json
+
+### document 삭제
+DELETE http://localhost:9200/problem-records/
+Content-Type: application/json
+
+### 배점(dsscValue) 평균 조회
+GET http://localhost:9200/problem-records/_search
+Content-Type: application/json
+
+{
+  "size": 0,
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "studentId": "TEST0001"
+          }
+        }
+      ]
+    }
+  },
+  "aggs": {
+    "avg_dsscValue": {
+      "avg": {
+        "field": "dsscValue"
+      }
+    }
+  }
+}
+
+### 전체 정오답 수와 정답의 수를 조회
+GET http://localhost:9200/problem-records/_search
+Content-Type: application/json
+
+{
+  "size": 0,
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "studentId": "TEST0001"
+          }
+        }
+      ]
+    }
+  },
+  "aggs": {
+    "correct_total_count": {
+      "value_count": {
+        "field": "correctYn"
+      }
+    },
+    "correct_true_count": {
+      "filter": {
+        "term": {
+          "correctYn": true
+        }
+      }
+    }
+  }
+}
+
+
