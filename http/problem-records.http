@@ -65,4 +65,60 @@ Content-Type: application/json
   }
 }
 
+### 문제 풀이 내용 및
+GET http://localhost:9200/problem-records/_search
+Content-Type: application/json
 
+{
+  "query": {
+    "term": {
+      "studyId": {
+        "value": "4"
+      }
+    }
+  },
+  "size": 100,
+  "sort": [
+    {
+      "problemStartDtm": {
+        "order": "asc"
+      }
+    }
+  ],
+  "aggs": {
+    "rate": {
+      "avg": {
+        "field": "correctYn"
+      }
+    },
+    "studyStructureId": {
+      "terms": {
+        "field": "studyStructureId",
+        "order": {
+          "_key": "asc"
+        }
+      },
+      "aggs": {
+        "rate": {
+          "avg": {
+            "field": "correctYn"
+          }
+        },
+        "correct_count": {
+          "filter": {
+            "term": {
+              "correctYn": "true"
+            }
+          }
+        },
+        "incorrect_count": {
+          "filter": {
+            "term": {
+              "correctYn": "false"
+            }
+          }
+        }
+      }
+    }
+  }
+}

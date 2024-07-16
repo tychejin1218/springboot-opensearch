@@ -94,7 +94,6 @@ class ProblemServiceTest {
 
       // Given
       AtomicInteger insertCount = new AtomicInteger();
-      String indexName = "problem-records";
 
       List<Long> studyIds = List.of(1L, 2L, 3L, 4L);
       Long studyStructureId = 100L;
